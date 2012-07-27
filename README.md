@@ -1,4 +1,4 @@
 SimpleBrowser
 =============
 
-A very simple web browser build using Qt's webkit
+A very simple web browser built using Qt's webkit
