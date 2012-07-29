@@ -5,9 +5,17 @@
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -19,7 +27,15 @@
     <ConfigurationType>Makefile</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Makefile</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
   </PropertyGroup>
@@ -29,7 +45,13 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -45,7 +67,31 @@ nmake debug-clean</NMakeCleanCommandLine>
     <NMakeOutput>debug\SimpleBrowser.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>WIN32;UNICODE;QT_LARGEFILE_SUPPORT;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_THREAD_SUPPORT;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <NMakeIncludeSearchPath>$(QTDIR)\include;$(QTDIR)\include\Qt;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\ActiveQt;$(QTDIR)\include\Qt3Support;$(QTDIR)\include\QtAssistant;$(QTDIR)\include\QtDBus;$(QTDIR)\include\QtDeclarative$(QTDIR)\include\QtDesigner;$(QTDIR)\include\QtHelp;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtOpenVG;$(QTDIR)\include\QtScript;$(QTDIR)\include\QtScriptTools;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtSvg;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtUiTools;$(QTDIR)\include\QtWebKit;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtXmlPatterns;$(QTDIR)\mkspecs\win32-msvc2010;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeBuildCommandLine>%QTDIR%\bin\qmake
+nmake debug</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>%QTDIR%\bin\qmake
+nmake debug-clean
+nmake debug</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>%QTDIR%\bin\qmake
+nmake debug-clean</NMakeCleanCommandLine>
+    <NMakeOutput>debug\SimpleBrowser.exe</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;UNICODE;QT_LARGEFILE_SUPPORT;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_THREAD_SUPPORT;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeIncludeSearchPath>$(QTDIR)\include;$(QTDIR)\include\Qt;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\ActiveQt;$(QTDIR)\include\Qt3Support;$(QTDIR)\include\QtAssistant;$(QTDIR)\include\QtDBus;$(QTDIR)\include\QtDeclarative$(QTDIR)\include\QtDesigner;$(QTDIR)\include\QtHelp;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtOpenVG;$(QTDIR)\include\QtScript;$(QTDIR)\include\QtScriptTools;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtSvg;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtUiTools;$(QTDIR)\include\QtWebKit;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtXmlPatterns;$(QTDIR)\mkspecs\win32-msvc2010;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeBuildCommandLine>%QTDIR%\bin\qmake -config release
+nmake release</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>%QTDIR%\bin\qmake -config release
+nmake release-clean
+nmake release</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>%QTDIR%\bin\qmake -config release
+nmake release-clean</NMakeCleanCommandLine>
+    <NMakeOutput>release\SimpleBrowser.exe</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;UNICODE;QT_LARGEFILE_SUPPORT;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_THREAD_SUPPORT;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <NMakeIncludeSearchPath>$(QTDIR)\include;$(QTDIR)\include\Qt;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\ActiveQt;$(QTDIR)\include\Qt3Support;$(QTDIR)\include\QtAssistant;$(QTDIR)\include\QtDBus;$(QTDIR)\include\QtDeclarative$(QTDIR)\include\QtDesigner;$(QTDIR)\include\QtHelp;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtOpenVG;$(QTDIR)\include\QtScript;$(QTDIR)\include\QtScriptTools;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtSvg;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtUiTools;$(QTDIR)\include\QtWebKit;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtXmlPatterns;$(QTDIR)\mkspecs\win32-msvc2010;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <NMakeBuildCommandLine>%QTDIR%\bin\qmake -config release
 nmake release</NMakeBuildCommandLine>
