@@ -1,0 +1,19 @@
+﻿Build started 8/14/2012 3:18:08 PM.
+     1>Project "C:\Source\SimpleBrowser\SimpleBrowser\SimpleBrowser\SimpleBrowser.vcxproj" on node 2 (build target(s)).
+     1>Build:
+         %QTDIR%\bin\qmake -config release
+         nmake release
+         
+         Microsoft (R) Program Maintenance Utility Version 10.00.30319.01
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         	"c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\nmake.exe" -f Makefile.Release
+         
+         Microsoft (R) Program Maintenance Utility Version 10.00.30319.01
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+     1>Done Building Project "C:\Source\SimpleBrowser\SimpleBrowser\SimpleBrowser\SimpleBrowser.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.82
