@@ -12,12 +12,12 @@ unix:QMAKE_CXXFLAGS += -Werror
 
 
 CONFIG(debug, debug|release){
-# Debug build options
-# Enable a read-only console window (i.e. for printf etc.)
-# CONFIG += console
+	# Debug build options
+	# Enable a read-only console window (i.e. for printf etc.)
+	 CONFIG   += console
 }
 else{
-# Release build options
-# Enable a read-only console window (i.e. for printf etc.)
-# CONFIG += console
+	# Release build options
+	# Enable a read-only console window (i.e. for printf etc.)
+	# CONFIG += console
 }

@@ -17,6 +17,10 @@ m_CurrentUrl(homeUrl){
 }
 
 void SimpleWebView::LoadUrl(QString url){
+	if(!url.contains("http://") && !url.contains("ftp://") && !url.contains("https://") && !url.contains("ftps://")){
+		//default to http, don't overwrite ftp.
+		url.prepend("http://");
+	}
 	m_CurrentUrl = url;
 	load(QUrl(url));
 }
