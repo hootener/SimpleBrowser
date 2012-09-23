@@ -3,6 +3,8 @@
 #include <QGestureEvent>
 #include <QPinchGesture>
 #include <QApplication>
+#include <QWebInspector>
+#include <QDebug>
 
 // Application Includes
 #include "SimpleWebView.h"
@@ -14,6 +16,14 @@ m_CurrentUrl(homeUrl){
 	show();
 	//grabGesture(Qt::PinchGesture);
 	setAttribute(Qt::WA_AcceptTouchEvents);
+
+	page()->settings()->setAttribute(QWebSettings::JavascriptCanOpenWindows, true);
+	this->settings()->setAttribute(QWebSettings::JavascriptCanOpenWindows, true);
+	QWebSettings::globalSettings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
+
+	m_pWebInspector = new QWebInspector();
+
+	connect(this,SIGNAL(loadFinished(bool)), this, SLOT(UpdateOnPageLoad(bool)));
 }
 
 void SimpleWebView::LoadUrl(QString url){
@@ -32,4 +42,15 @@ void SimpleWebView::LoadHome(){
 
 void SimpleWebView::RefreshPage(){
 	load(m_CurrentUrl);
+}
+
+void SimpleWebView::UpdateOnPageLoad(bool ok){
+	if(!ok){
+		qDebug() << "Something went wront with the page load";
+		return;
+	}
+
+	if(m_pWebInspector->isVisible()){ 
+		m_pWebInspector->setPage(this->page());
+	}
 }

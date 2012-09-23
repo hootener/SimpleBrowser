@@ -5,6 +5,7 @@
 // Application Includes
 
 // Forward Declaratoins
+class QWebInspector;
 
 class SimpleWebView: public QWebView{
 	Q_OBJECT
@@ -17,4 +18,8 @@ public:
 protected:
 	QString m_CurrentUrl;
 	QString m_HomeUrl;
+
+	QWebInspector * m_pWebInspector;
+
+	Q_SLOT void UpdateOnPageLoad(bool ok);
 };
