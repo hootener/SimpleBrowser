@@ -12,7 +12,8 @@ m_HomeUrl(homeUrl),
 m_CurrentUrl(homeUrl){
 	load(QUrl(homeUrl));
 	show();
-	grabGesture(Qt::PinchGesture);
+	//grabGesture(Qt::PinchGesture);
+	setAttribute(Qt::WA_AcceptTouchEvents);
 }
 
 void SimpleWebView::LoadUrl(QString url){
