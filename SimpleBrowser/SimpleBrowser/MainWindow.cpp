@@ -6,6 +6,8 @@
 #include <QAction>
 #include <QStatusBar>
 #include <QProgressBar>
+#include <QMessageBox>
+#include <QSslSocket>
 #include <QLabel>
 
 MainWindow::MainWindow(QWidget * pParent):QMainWindow(pParent){
@@ -39,7 +41,13 @@ MainWindow::MainWindow(QWidget * pParent):QMainWindow(pParent){
 	addToolBar(Qt::TopToolBarArea, pToolBar);
 	setCentralWidget(m_pWebView);
 
-
+	// Check for SSL Support
+#ifndef QT_NO_OPENSSL
+	if (!QSslSocket::supportsSsl()) {
+	QMessageBox::information(nullptr, "Simple Browser",
+					"This system does not support OpenSSL. SSL websites will not be available.");
+	}
+#endif
 
 }
 
