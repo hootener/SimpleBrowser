@@ -1,6 +1,8 @@
 TEMPLATE = app
 CONFIG	+= qt warn_on no_keywords embed_manifest_exe
 QT += network webkit
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets webkitwidgets
+
 TARGET = SimpleBrowser
 SOURCES	= main.cpp MainWindow.cpp SimpleWebView.cpp
 HEADERS	= MainWindow.h SimpleWebView.h
