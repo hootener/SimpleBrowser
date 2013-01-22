@@ -46,7 +46,7 @@ void SimpleWebView::RefreshPage(){
 
 void SimpleWebView::UpdateOnPageLoad(bool ok){
 	if(!ok){
-		qDebug() << "Something went wront with the page load";
+		qWarning() << "Something went wrong with the page load";
 		return;
 	}
 

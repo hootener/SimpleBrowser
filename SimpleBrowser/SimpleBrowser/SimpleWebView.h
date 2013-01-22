@@ -1,16 +1,16 @@
 
 // System Includes
-#include <QWebView>
+#include <QWebView.h>
 
 // Application Includes
 
 // Forward Declaratoins
 class QWebInspector;
 
-class SimpleWebView: public QWebView{
+class SimpleWebView: public QWebView {
 	Q_OBJECT
 public:
-	SimpleWebView(QString homeUrl, QWidget * pParent = NULL);
+	SimpleWebView(QString homeUrl, QWidget * pParent = nullptr);
 	Q_SLOT void LoadUrl(QString url);
 	Q_SLOT void LoadHome();
 	Q_SLOT void RefreshPage();
